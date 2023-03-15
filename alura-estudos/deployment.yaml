@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-test
+spec:
+  replicas: 2
+  template:
+  
+    metadata:
+      name: pod-django
+      labels:
+        app: pod-test-v1.0
+    spec:
+      containers: 
+        - name: django
+          image: #montar pela dockerfile
+          ports:
+            - containerPort: 5000
+
+    metadata:
+      name: pod-influx
+      labels:
+        app: pod-test-v1.0
+    spec:
+      containers: 
+        - name: influx
+          image: #pegar do acr
+          ports:
+            - containerPort: 8086  
+
+    metadata: 
+      name: pod-mosquitto
+      labels: 
+        app: pod-test-v1.0  
+    spec:
+      containers: 
+        - name: mosquitto
+          image: #montar pela dockerfile
+          ports:
+            - containerPort: 8883 
+
+    metadata: 
+      name: pod-mysql
+      labels: 
+        app: pod-test-v1.0 
+    spec:
+      containers: 
+        - name: mysql
+          image: #pegar do acr
+          ports:
+            - containerPort: 3306     
+
+  selector:
+    matchLabels:
+      app: pod-test-v1.0

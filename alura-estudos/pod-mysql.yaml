@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: pod-mysql
+  labels: 
+    app: pod-test-v1.0 
+spec:
+  containers: 
+    - name: mysql
+      image: #pegar do acr
+      ports:
+        - containerPort: 3306

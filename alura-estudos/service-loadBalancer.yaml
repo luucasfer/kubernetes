@@ -1,0 +1,27 @@
+# Permite acessar os pods atraves de um cloud provider
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-loadBalancer-test
+spec:
+  type: LoadBalancer
+  selector: 
+    app: pod-test-v1.0 
+  ports:
+    - name: django
+      port: 5000
+      targetPort: 5000
+
+    - name: mosquitto
+      port: 8883
+      targetPort: 8883
+
+    - name: influx
+      port: 8086
+      targetPort: 8086
+
+    - name: mysql
+      port: 3306
+      targetPort: 3306
+      

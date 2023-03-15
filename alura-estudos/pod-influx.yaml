@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: pod-influx
+  labels: 
+    app: pod-test-v1.0 
+spec:
+  containers:      
+    - name: influx
+      image: #pegar do acr
+      ports:
+        - containerPort: 8086
