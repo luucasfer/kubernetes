@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service 
+metadata:
+  name: service-front-end
+spec:
+  selector: 
+    app: cluster-bit-agua
+  ports:
+    - name: front-end
+      port: 8087
+      targetPort: 8087
+  type: LoadBalancer

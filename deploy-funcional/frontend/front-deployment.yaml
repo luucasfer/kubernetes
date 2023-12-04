@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: front-end
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: front
+  
+  template:
+    metadata:
+      name: front-end
+      labels:
+        app: front
+    spec:
+      containers:
+        - name: front-end
+          image: ""
+          ports:
+            - containerPort: 8087
